@@ -1,0 +1,10 @@
+{
+  "name": "weathershopper",
+  "version": "1.0.0",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  },
+  "scripts": {
+    "cypress:run": "cypress run --spec \"cypress/e2e/*.cy.js\""
+  }
+}
