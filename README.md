@@ -12,6 +12,10 @@ Install dependencies: ```npm install```
 To run the Cypress tests, open a new terminal window and run: ```npm run cypress:run```
 
 
+## Use Case
+https://weathershopper.pythonanywhere.com/
+Conditional testing scenarios, the test case can be seen on the web app, hovering over the "i" icon
+
 
 ## Docker Usage
 Build the docker image, by running the following command:
