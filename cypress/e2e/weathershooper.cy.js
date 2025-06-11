@@ -6,6 +6,8 @@ const ZIP_CODE = "12345";
 
 describe("Weather Shopper Test", () => {
   it("should click Buy moisturizers or Buy sunscreens button based on temperature", () => {
+    const selectedItems = [];
+
     // Visit the website
     cy.visit("/");
 
@@ -64,12 +66,14 @@ describe("Weather Shopper Test", () => {
                   .parent()
                   .find('button:contains("Add")')
                   .click();
+                selectedItems.push(cheapestAloeMoisturizer.name);
 
                 // Add the cheapest Almond moisturizer to the cart
                 cy.contains(cheapestAlmondMoisturizer.name)
                   .parent()
                   .find('button:contains("Add")')
                   .click();
+                selectedItems.push(cheapestAlmondMoisturizer.name);
 
                 // Click on the cart
                 cy.get("#cart").click();
@@ -121,12 +125,14 @@ describe("Weather Shopper Test", () => {
                   .parent()
                   .find('button:contains("Add")')
                   .click();
+                selectedItems.push(spf30.name);
 
                 // Add the cheapest spf50 sunscreen to the cart
                 cy.contains(spf50.name)
                   .parent()
                   .find('button:contains("Add")')
                   .click();
+                selectedItems.push(spf50.name);
 
                 // Click on the cart
                 cy.get("#cart").click();
@@ -150,6 +156,10 @@ describe("Weather Shopper Test", () => {
 
       // Verify if total is correct
       cy.get("#total").should("have.text", `Total: Rupees ${total}`);
+    });
+
+    selectedItems.forEach((item) => {
+      cy.get('.table-striped tbody tr td:first-child').should('contain', item);
     });
 
     cy.contains("Pay with Card")
