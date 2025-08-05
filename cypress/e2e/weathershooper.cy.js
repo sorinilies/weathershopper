@@ -182,4 +182,8 @@ describe("Weather Shopper Test", () => {
         cy.get("h2").should("be.visible").contains("PAYMENT SUCCESS");
       });
   });
+
+ // Whatever 
+
+
 });
